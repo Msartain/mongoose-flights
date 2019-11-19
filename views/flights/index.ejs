@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mongoose Flights</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+<%- include('../partials/header') %>
 
 </head>
 <body>
     <a href="/">Home</a>
     <br>
     <br>
-    <nav><a href="/flights/new">Add flight</a> <a href="/flights">All flights</a> </nav>
     <h2>Flights list</h2>
     <table>
         <thead>
-            <th> Airline </th>
-            <th> Flight No </th>
-            <th> Departure Date </th>
+            <th>Airline </th>
+            <th>Flight No </th>
+            <th>Departure Date </th>
+            <th>Departure Time </th>
+            <th>Departure Airport </th>
         </thead>
         <tbody>
         <% flights.forEach(function(flight) { %>
             <tr>
-            <td><%= flight.airline %></td>
-            <td><%= flight.flightNumber %></td>
-            <td><%= flight.departs %></td>
+                <td><%= flight.airline %></td>
+                <td><%= flight.flightNumber %></td>
+                <td><%= flight.departs.toLocaleDateString() %></td>
+                <td><%= flight.departs.toLocaleTimeString() %></td>
+                <td><%= flight.airport %></td>
+            <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
             </tr>
         <% }) %>
         </tbody>

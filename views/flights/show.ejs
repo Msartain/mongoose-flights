@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Airline:   <%= flight.airline %> </div>
+    <div>Flight Number:   <%= flight.flightNumber %> </div>
+    <div>Departure Date:   <%= flight.departs.toLocaleDateString() %></div>
+    <div>Departure Time:   <%= flight.departs.toLocaleTimeString() %></div>
+    <div>Departure Airport:   <%= flight.airport %></div>
+</section>
+<% flight.destinations.forEach(function(destination){ %>
+    <div>Destination: <%= destination.airport %></div>
+    <div>Arrival Date: <%= destination.arrival.toLocaleDateString() %></div>
+    <div>Arrival Time: <%= destination.arrival.toLocaleTimeString() %></div>
+<% }) %>
+
+<section>
+    <br>
+    <br>
+    <form action="/flights/<%= flight._id %>/destination" method="POST">
+    <label> Add a destination:
+        <select name="airport">
+            <option value="AUS">Austin</option>
+            <option value="DAL">Dallas</option>
+            <option value="LAX">Los Angeles</option>
+            <option value="SAN">San Diego</option>
+            <option value="SEA">Seattle</option>
+        </select>
+    </label>  
+    <br>
+    <br>  
+</section>    
+        <label> Arrival date & time:
+            <input type= "datetime-local" name="arrival"> 
+        </label><br>
+    <input type="submit" value="UpdateFlight">
+    </form>

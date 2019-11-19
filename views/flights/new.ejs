@@ -1,29 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mongoose Flights</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include('../partials/header') %>
 
-<body>
-    <nav><a href="/flights/new">Add flight</a> <a href="/flights">All flights</a> </nav>
     <h2>Enter a new flight</h2>
     <form action="/flights" method="POST">
+    <section>
+        <label> Departure Airport:
+            <select name="airport">
+                <option value="AUS">Austin</option>
+                <option value="DAL">Dallas</option>
+                <option value="LAX">Los Angeles</option>
+                <option value="SAN">San Diego</option>
+                <option value="SEA">Seattle</option>
+            </select>
+        </label>    
+    </section>    
     <label>Airline:
         <select name="airline">
-            <option value="american">American</option>
-            <option value="southwest">Southwest</option>
-            <option value="united">United</option>   
+            <option value="American">American</option>
+            <option value="Southwest">Southwest</option>
+            <option value="United">United</option>   
         </select>
     </label><br>
     <label>Flight No:
         <input type="text" name="flightNumber">
     </label><br>
     <label>Departure Date:
-        <input type="datetime-local" name="departs"> 
+        <input type= "datetime-local" name="departs"> 
     </label><br>
     <input type="submit" value="Add Flight">
     </form>

@@ -3,8 +3,10 @@ let Flight = require('../models/flight');
 module.exports = {
     index,
     create,
-    new: newFlight
+    new: newFlight,
+    show
 }
+
 
 function index(req, res){
     Flight.find({}, function(err, flights){
@@ -13,16 +15,22 @@ function index(req, res){
 }
 
 function create(req, res){
-    console.log("WORKING1");
+    for (let key in req.body){
+        if(req.body[key] === '') delete req.body [key];
+    }
     let flight = new Flight(req.body);
     flight.save(function(err){
-        console.log(flight);
         if (err) return res.render('flights/new');
-        console.log("test")
         res.redirect('/flights');
     });
 }
 
 function newFlight(req, res) {
-    res.render('flights/new');
-  }
+    res.render('flights/new', { title:'Add a flight'});
+}
+
+function show(req, res){
+    Flight.findById(req.params.id, function(err, flight) {
+    res.render('flights/show', { title:'Flight Details', flight})
+});
+}
