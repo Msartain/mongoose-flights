@@ -1,2 +1,10 @@
 <%- include('../partials/header') %>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus consequatur ipsa inventore, eos similique placeat, voluptates fuga pariatur quod possimus ut minima optio corrupti sequi? Maiores tenetur fuga consequuntur harum!</p>
+
+<form id="add-ticket-form" action="/flights/show" method="POST">
+    <label>Seat:</label>
+    <input type="text" name="seat">
+    <label>price:</label>
+    <input type="number" name="price">
+    <input type="submit" value="Add Ticket">
+</form> 
+
