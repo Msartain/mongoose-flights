@@ -1,10 +1,41 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url('public/images/world.png');
+  background: url('../images/flight routes.png');
   background-size: cover;
 }
 
+title {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
 a {
-  color: #00B7FF;
+  color: rgb(0, 174, 255);
+  font-size: 30px;
+}
+
+td {
+  color: rgb(255, 238, 0);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+th {
+  color: rgb(244, 247, 248);
+  font-size: 20px;
+
+}
+
+label {
+  color:white;
+  font-size: 20px;
+}
+
+div {
+  color: white;
+  font-size: 20px;
 }

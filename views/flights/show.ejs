@@ -30,10 +30,13 @@
     <br>  
 </section>    
         <label> Arrival date & time:
-            <input type= "datetime-local" name="arrival"> 
+            <input type= "datetime-local" name="arrival"> <input type="submit" value="UpdateFlight">
         </label><br>
-    <input type="submit" value="UpdateFlight">
-    <table>
+    <a href="/tickets/new">New Ticket</a>
+
+    <br>
+    <br>
+    <table class="table table-striped" id="seat price table">
         <thead>
           <tr>
             <th>Seat</th>
@@ -42,4 +45,3 @@
         </thead>
     </table>
 
-    <a href="/tickets/new">New Ticket</a>
