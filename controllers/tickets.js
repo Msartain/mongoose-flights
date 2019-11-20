@@ -7,6 +7,6 @@ module.exports = {
 
 
 function show(req, res){
-    console.log('carson')
-    res.render('flights/ticket')
+    console.log('WORKING')
+    res.render('tickets/new')
 }
