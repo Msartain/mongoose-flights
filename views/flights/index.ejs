@@ -15,15 +15,28 @@
         </thead>
         <tbody>
         <% flights.forEach(function(flight) { %>
-            <tr>
-                <td><%= flight.airline %></td>
-                <td><%= flight.flightNumber %></td>
-                <td><%= flight.departs.toLocaleDateString() %></td>
-                <td><%= flight.departs.toLocaleTimeString() %></td>
-                <td><%= flight.airport %></td>
-            <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
-            </tr>
-        <% }) %>
+            <% let today = Date.now(); %>
+            <% let flightDate = flight.departs; %>
+            <% if( today > flightDate) { %>
+                <tr>
+                    <td class="text-danger"><%= flight.airline %></td>
+                    <td class="text-danger"><%= flight.flightNumber %></td>
+                    <td class="text-danger"><%= flight.departs.toLocaleDateString() %></td>
+                    <td class="text-danger"><%= flight.departs.toLocaleTimeString() %></td>
+                    <td class="text-danger"><%= flight.airport %></td>
+                    <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+                </tr>
+                <% } else { %>
+                    <tr>
+                        <td><%= flight.airline %></td>
+                        <td><%= flight.flightNumber %></td>
+                        <td><%= flight.departs.toLocaleDateString() %></td>
+                        <td><%= flight.departs.toLocaleTimeString() %></td>
+                        <td><%= flight.airport %></td>
+                        <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+                    </tr>
+                <% } %>
+                <% }) %>
         </tbody>
         </table>
 </body>

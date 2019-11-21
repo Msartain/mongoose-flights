@@ -16,7 +16,6 @@ function createFlightTicket(req, res) {
             flight: [req.body.flightId]
         }
         let ticket = new Ticket(obj);
-        // console.log(ticket);
         ticket.save(function(err) {
             if(err)console.log(err)  
             res.redirect(`/flights/${flight._id}`);
@@ -26,7 +25,6 @@ function createFlightTicket(req, res) {
   
 
 function show(req, res){
-    // console.log('WORKING' + req.params.id)
     res.render('tickets/new', {
         id: req.params.id
     })
