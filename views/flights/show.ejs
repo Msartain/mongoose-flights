@@ -17,21 +17,23 @@
     <br>
     <br>
     <form action="/flights/<%= flight._id %>/destination" method="POST">
-    <label> Add a destination:
-        <select name="airport">
-            <option value="AUS">Austin</option>
-            <option value="DAL">Dallas</option>
-            <option value="LAX">Los Angeles</option>
-            <option value="SAN">San Diego</option>
-            <option value="SEA">Seattle</option>
-        </select>
-    </label>  
+        <label> Add a destination:
+            <select name="airport">
+                <option value="AUS">Austin</option>
+                <option value="DAL">Dallas</option>
+                <option value="LAX">Los Angeles</option>
+                <option value="SAN">San Diego</option>
+                <option value="SEA">Seattle</option>
+            </select>
+        </label>  
     <br>
     <br>  
 </section>    
         <label> Arrival date & time:
             <input type= "datetime-local" name="arrival"> <input type="submit" value="UpdateFlight">
-        </label><br>
+        </label>
+    </form>
+        <br>
     <a href="/tickets/<%= flight._id %>/new">New Ticket</a>
 
     <br>
@@ -41,15 +43,19 @@
           <tr>
             <th>Seat</th>
             <th>Price</th>
+            <th>Remove Ticket</th>
           </tr>
         </thead>
         <tbody>
             <% tickets.forEach(function(ticket) { %>
+                <p><%= ticket.flight %></p>
                 <tr>
                     <td><%= ticket.seat %></td>
                     <td>$<%= ticket.price %></td>
+                    <form action="/tickets/<%= ticket.flight %>/<%= ticket.id %>?_method=DELETE" method="POST" class="delete-form">
+                    <td><button type="submit">Delete</button></td>
+                    </form>
                 </tr>
             <% }) %>
         </tbody>
     </table>
-

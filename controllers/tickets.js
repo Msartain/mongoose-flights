@@ -4,7 +4,15 @@ let Ticket = require('../models/ticket');
 
 module.exports = {
     show,
-    createFlightTicket
+    createFlightTicket,
+    delete: deleteTicket
+}
+
+function deleteTicket(req, res){
+    let ticketId = req.params.id;
+    let flightId = req.params.flight;
+    Ticket.deleteOne({_id: ticketId}, function(err){})
+    res.redirect(`/flights/${flightId}`);
 }
 
 
@@ -25,7 +33,9 @@ function createFlightTicket(req, res) {
   
 
 function show(req, res){
+    console.log(req.params.id);
     res.render('tickets/new', {
         id: req.params.id
     })
 }
+
